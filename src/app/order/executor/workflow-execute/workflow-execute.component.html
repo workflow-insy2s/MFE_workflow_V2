@@ -1,0 +1,134 @@
+<div class="flex justify-center items-center h-screen">
+  <div class="container mx-auto">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-500 p-2 full">
+
+    <!-- <h2>Liste des workflow</h2> -->
+    <div class="title-container">
+      <h1 class="page-title">Exécution > <span>Liste workflows à exécuter ></span>
+        {{SExecute.workflow.name}}
+    </h1>
+    </div>
+
+<!-- <h1 class="h1">{{SExecute.workflow.name}}</h1> -->
+<div class="blog-list">
+  <!------pour les steps deja executer-->
+  <div *ngFor="let step of steps"  class="blog-item-container">
+    
+    <h6>{{step.name}}</h6>
+    <span class="arrow"></span>
+  </div>
+  <!------------------------------------>
+<!--affichage des Steps a executer-->
+
+
+<div  class="blog-item-containerex">
+    
+  <h6>{{SExecute.step.name}}</h6>
+  
+</div>
+
+</div> 
+<!---*------------------------------------------------------------------------------------------------------*-->
+<!--pour executer le Step-->
+
+<div class="conteneur">
+  <div class="cadre gauche">
+    <h4 class="h4"><svg class="iconExecStep" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="green" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+    </svg>Etape en cours : <span class="stepName">{{SExecute.step.name}}</span></h4>
+
+    <!-- <div class="container">
+      <div class="pLeft">
+        <h6>Statut :</h6> {{SExecute.state}}
+      </div>
+      <div class="pCenter">
+       <h6>Date Début:</h6>  {{SExecute.start_date}}
+      </div>
+      <div class="pRight">
+        <h6>Date Fin:</h6> {{SExecute.end_date}}
+      </div>
+    </div> -->
+    <h6>Statut : <span style="color: #08d308;">{{SExecute.state}}</span></h6>
+    <h6>Date Début : <span>{{SExecute.start_date}} </span></h6>
+    <h6>Date Fin : <span>{{SExecute.end_date}}</span></h6> 
+
+
+    <!-----------------affichier le regles de Step----------------->
+    <h5>Liste des règles à éxecuter</h5>
+
+    <table>
+      <thead>
+        <tr>
+          <th class="col-num" style="text-align: center;">#</th>
+          <th class="col-nom">Nom de regle</th>
+          <th class="col-description">Description</th>
+          <th class="col-actions"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rule of listRule,let i = index">
+          <td class="col-num">{{ i + 1 }}</td>
+          <td class="col-nom">{{rule.name}}</td>
+          <td class="col-description">{{rule.description}}</td>
+          <td class="col-actions" >
+          
+            
+            <button (click)="ex(rule.id)">Traiter</button>
+  
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!------------------------------------------------------------->
+
+  
+  </div>
+  <!-----------------------pour remplir le objet de type saisir----------------------------->
+  <div class="cadre droit" *ngIf="showViewTraitement">
+    <!---hjrhrjfhrbfhrfrbfjkhebfjk<br>bfjekfuzgkjbfjkbkjbrfkz-->
+        <!-------------------------->
+        
+            <div class="form-container" *ngIf="showEx">
+              <div class="add-user-form">
+                <h2>{{objetSaisir.name}} :</h2>
+                <form>
+                    <div class="form-group">
+                        <input type="text" id="content" name="content" [(ngModel)]="objetSaisir.content"  required>
+                    </div>
+                    
+            
+                    <div class="button-group">
+                        <button type="button" class="add-button" (click)="sauvegarder()" ><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-save-fill" viewBox="0 0 16 16">
+                          <path d="M8.5 1.5A1.5 1.5 0 0 1 10 0h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h6c-.314.418-.5.937-.5 1.5v7.793L4.854 6.646a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0l3.5-3.5a.5.5 0 0 0-.708-.708L8.5 9.293z"/>
+                        </svg></button>
+                    </div>
+                </form>
+              </div>
+            </div>
+        
+        <!-------------------------->
+
+
+              <!-----------pour le button de executer le regle--------------->
+
+
+              <!------------------------------------------------------------->
+  </div>
+  <!---------------------------------------------------------------------------------------->
+</div>
+
+
+
+<body> 
+  <div class="button-container" >
+      <button *ngIf="showButtonEx" (click)="executerRegles()">Exécuter la règle</button>
+    
+    <button *ngIf="showNextStep" type="button" class="button green-button" (click)="Progresser()" >Etape suivante</button>
+    <!--<button type="button" class="button green-button" (click)="nextStep()" [disabled]="!progress">Progresser</button>-->
+  </div>
+  </body>
+
+  </div>
+  </div>
+  </div>
