@@ -193,7 +193,7 @@ async executerRegles(){
   if(this.rule){
     try {
       const res = await this.srv.getResultRule(this.rule).toPromise();
-      
+      console.log("rules: " , this.rule);
       if (res === true){
         Swal.fire('Valider', '', 'success');
       this.nombreRuleExecute =this.nombreRuleExecute + 1 ;

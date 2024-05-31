@@ -87,20 +87,17 @@
 }
 
 .col-description {
-  width: 55%;
+  width: 60%;
 }
 
-.col-steps{
-  width: 10px;
-  text-align: center;
-}
+
 .col-actions {
   width: 10%;
   text-align: right; /* Optionnel: pour centrer les boutons */
 }
 
 .col-num {
-  width: 10px;
+  width: 5%;
   text-align: center;
 }
 

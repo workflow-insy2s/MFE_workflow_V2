@@ -16,6 +16,8 @@ import { RoleEX } from '../models/roleEx';
 })
 export class WorkflowListComponent implements OnInit{
 
+  pageIndex = 1;
+  pageSize = 8;
   // constructor(private srv: RuleService , private router: Router) {}
   constructor(private tokenService: TokenService, private srvRole: ServiceService, private router: Router,private dialog: MatDialog) {}
 
@@ -47,7 +49,9 @@ ngOnInit(): void {
 
 }
 
-
+onPageChange(event: any): void {
+  this.pageIndex = event.pageIndex + 1;
+}
 /************************************************************* */
 
 steps: StepEx[]=[];

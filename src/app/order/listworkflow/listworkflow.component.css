@@ -18,6 +18,8 @@
 .user-list th, .user-list td {
   border: 1px solid #ddd;
   padding: 8px;
+  border-left: none;
+  border-right: none;
 }
 
 .user-list th {
@@ -66,11 +68,17 @@
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
+    border-left: none;
+    border-right: none;
   }
   
   th {
-    background-color: #f2f2f2;
-  }
+    border: 1px solid #ddd;
+    border-right: none;
+    padding: 8px;
+    text-align: left;
+    border-left: none;
+    }
   
   .in-progress {
     font-weight: bold;
@@ -165,3 +173,34 @@
 span{
   font-weight: bold;
 } 
+
+.col-nom {
+  width: 20%;
+}
+
+.col-description {
+  width: 60%;
+}
+
+.col-role{
+  width: 5px;
+  text-align: center;
+}
+
+.col-actions {
+  width: 20%;
+  text-align: right; /* Optionnel: pour centrer les boutons */
+}
+
+.col-num {
+  width: 5%;
+  text-align: center;
+}
+
+
+table {
+  width: 100%;
+}
+
+
+  

@@ -15,16 +15,14 @@
           <th class="col-num" style="text-align: center;">#</th>
           <th class="col-nom">Nom de workflow</th>
           <th class="col-description">Description</th>
-          <th class="col-steps">N° d'étapes</th>
           <th class="col-actions"></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let wkf of Workflow ,let i = index ">
+        <tr *ngFor="let wkf of Workflow | slice: (pageIndex - 1) * pageSize : pageIndex * pageSize, let i = index">
           <td class="col-num">{{ i + 1 }}</td>
           <td class="col-nom">{{wkf.name}}</td>
           <td class="col-description">{{wkf.description}}</td>
-          <td class="col-steps">2</td>
 
           <td class="col-actions">
             <button class="roler" (click)="openRoleUserDialog()">
@@ -44,8 +42,8 @@
       </tbody>
     </table>
     
-    <!-- <mat-paginator [length]="WorkflowDto.length" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 100]" (page)="onPageChange($event)" [hidePageSize]="true">
-    </mat-paginator> -->
+    <mat-paginator [length]="Workflow.length" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 100]" (page)="onPageChange($event)" [hidePageSize]="true">
+    </mat-paginator>
   </div>
   </div>
   </div>
