@@ -52,7 +52,13 @@ ngOnInit(): void {
 onPageChange(event: any): void {
   this.pageIndex = event.pageIndex + 1;
 }
-/************************************************************* */
+/*************************mise a jour 01/06/2024******************************* */
+executerDetails(workflowId : any){
+  this.router.navigate(['/mfe1/orderComponent/executor/executionDetails/',workflowId]);
+
+
+}
+/*********************************fin mise a jour 01/06/2024**************************** */
 
 steps: StepEx[]=[];
 userId:number = 1;
@@ -80,7 +86,7 @@ executer(workflowId : any) {
                     // traitement du cas d'erreur
                     console.log(err.text);
                    // Swal.fire('Invalid ', '', 'error');
-                    this.router.navigate(['/mfe1/orderComponent/executor/workflowExecute/',workflowId]);
+                    this.router.navigate(['/mfe1/orderComponent/executor/executionDetails/',workflowId]);
 
                     console.log("il y a un erreur lors de AddStepToExecuted:",err)
                     

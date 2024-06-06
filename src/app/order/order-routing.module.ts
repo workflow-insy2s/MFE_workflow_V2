@@ -15,6 +15,7 @@ import { ExecutorComponent } from './executor/executor.component';
 import { WorkflowListComponent } from './executor/workflow-list/workflow-list.component';
 import { WorkflowExecuteComponent } from './executor/workflow-execute/workflow-execute.component';
 import { DescriptionComponent } from './executor/description/description.component';
+import { ExecutionDetailsComponent } from './executor/execution-details/execution-details.component';
 // import { ExecutorComponent } from './executor/executor.component';
 // import { WorkflowListComponent } from './executor/workflow-list/workflow-list.component';
 // import { WorkflowExecuteComponent } from './executor/workflow-execute/workflow-execute.component';
@@ -103,11 +104,14 @@ const orderRoutes: Routes = [
               component: WorkflowListComponent
             },
             {
-              path: 'workflowExecute/:workflowId',
+              path: 'workflowExecute/:workflowExId',
               component: WorkflowExecuteComponent
             },
             {path : 'description',
               component :DescriptionComponent
+            },
+            {path : 'executionDetails/:workflowId',
+              component :ExecutionDetailsComponent
             }
         
             ]
@@ -121,11 +125,23 @@ const orderRoutes: Routes = [
                     exposedModule:"./RuleModule"
                 }).then(m=>m.RuleModule).catch(e=>console.log(e));
             }
-        }
+        },
+        {
+          path:'mfe-user',
+          loadChildren:()=>{
+              return loadRemoteModule({
+                  type:'module',
+                  remoteEntry:"http://localhost:4004/remoteEntry.js",
+                  exposedModule:"./RuleModule"
+              }).then(m=>m.RuleModule).catch(e=>console.log(e));
+          }
+      }
          
         ]
     
-      },
+      }
+      
+
 
 ];
 

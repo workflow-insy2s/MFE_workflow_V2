@@ -1,7 +1,7 @@
 import { Workflow } from "./workflow";
 
 export class StepEx {
-  id: number;
+  id: any;
   name: string;
   description: string;
   creationDate: string;

@@ -9,11 +9,11 @@ import { Role } from '../common/models/role';
 import { User } from '../common/models/user';
 import { ConditionalStep, IterativeStep, StepDto1 } from '../common/models/step-dto';
 import { RuleObjet } from '../common/models/RuleObjet-dto';
-import { WorkflowExecution } from './executor/models/workflow-execute';
 import { Objet } from './executor/models/ruleObjet';
-// import { WorkflowExecution } from './executor/models/workflowExecutes';
-// import { Objet } from './executor/models/ruleObjet';
 import {StepEx} from './executor/models/stepEx'
+import { WorkflowExecution } from './executor/models/workflow-execute';
+import { InstanceStepEx } from './executor/models/InstanceStepEx';
+import { StepExecution } from './executor/models/step-execute';
 
 @Injectable({
   providedIn: 'root'
@@ -250,20 +250,51 @@ editUser(user:User){
 // 
 /** ghazi api for executor */
 //APIRole
- // API pour récupérer tous les workflows par rôle
+ // API pour récupérer tous les workflows par rôle (1)
  getAllworkflowByRole(role: number) {
   return this.http.get(this.urlEx + '/workflow/role/' + role, );
 }
 
-// API pour récupérer toutes les étapes par ID de workflow
+//getWorkflowExsByIdWorkflow
+getWorkflowExsByIdWorkflow(workflowId: number) {
+  return this.http.get(this.urlEx + '/workflow/workflowExs/workflowExByWorkflowId/' + workflowId );
+}
+
+
+//AddWorkflowEx (instance un workflowEx a partir workflow )
+  //
+  AddWorkflowEx (workflowExecution:WorkflowExecution){
+    return this.http.post(this.urlEx+'/workflow/workflowExs',workflowExecution) 
+   }
+
+// API pour récupérer toutes les étapes par ID de workflow 
 getAllStepByIdWorkflow(workflowId: any) {
   return this.http.get(this.urlEx + '/workflow/workflowExs/workflow/stpes/' + workflowId);
 }
+// API pour instancer des StepEx a partir Step 
+AddStepsInStepsExwithIdWorkflowEx(workflowExecutionId: any,userId: any,  steps: StepEx[]): Observable<any> {
 
-// API pour éditer une étape
-editStep(stepEx: WorkflowExecution, id :number) {
-  return this.http.put(this.urlEx + '/workflow/workflowExs/'+id,stepEx);
+  return this.http.post(this.urlEx+'/workflow/stepExs/addStepsInStepEx/workflowEx/'+workflowExecutionId+'/user/'+userId, steps);
 }
+
+// API pour récupérer toutes les étapesEx par ID de workflowEx 
+getAllStepExByIdWorkflowEx(workflowExId: any) {
+  return this.http.get(this.urlEx + '/workflow/stepExs/stpeExsByIdWorkflowEx/' + workflowExId);
+}
+
+
+
+// API pour éditer une étapeEx de workflowEx
+editStepEx(stepExecution:StepExecution , id :number) {
+  return this.http.put(this.urlEx + '/workflow/stepExs/'+id,stepExecution);
+}
+
+// API pour éditer workflowExecuter 
+editWorkflowEx(workflowExecution:WorkflowExecution , id :number) {
+  return this.http.put(this.urlEx + '/workflow/workflowExs/'+id,workflowExecution);
+}
+
+
 
 // API pour obtenir le résultat d'une règle
 getResultRule(ruleId: any) {

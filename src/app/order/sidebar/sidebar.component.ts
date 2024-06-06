@@ -10,21 +10,21 @@ export class SidebarComponent {
 constructor(private router: Router) {}
 
   addUser() {
-    this.router.navigate(['/mfe-user/homeComponent/addUserComponent']);
+    this.router.navigate(['/mfe1/orderComponent/mfe-user/homeComponent/addUserComponent']);
   }
 
   addRole(){
-    this.router.navigate(['/mfe-user/homeComponent/addrolecomponent']);
+    this.router.navigate(['/mfe1/orderComponent/mfe-user/homeComponent/addrolecomponent']);
 
   }
   ListUsers(){
-    this.router.navigate(['/mfe-user/homeComponent/userListComponent']);
+    this.router.navigate(['/mfe1/orderComponent/mfe-user/homeComponent/userListComponent']);
 
 
   }
 
   ListRoles(){
-    this.router.navigate(['/mfe-user/homeComponent/roleListComponent']);
+    this.router.navigate(['/mfe1/orderComponent/mfe-user/homeComponent/roleListComponent']);
 
   }
   
