@@ -16,6 +16,7 @@ import { WorkflowListComponent } from './executor/workflow-list/workflow-list.co
 import { WorkflowExecuteComponent } from './executor/workflow-execute/workflow-execute.component';
 import { DescriptionComponent } from './executor/description/description.component';
 import { ExecutionDetailsComponent } from './executor/execution-details/execution-details.component';
+import { ModelingComponent } from './modeling/modeling.component';
 // import { ExecutorComponent } from './executor/executor.component';
 // import { WorkflowListComponent } from './executor/workflow-list/workflow-list.component';
 // import { WorkflowExecuteComponent } from './executor/workflow-execute/workflow-execute.component';
@@ -57,6 +58,10 @@ const orderRoutes: Routes = [
             component: AddworkflowComponent
           },
           {
+            path: 'modelingComponent/:workflowId',
+            component: ModelingComponent
+          },
+          {
             path: 'create-flowComponent/:workflowId',
             component: CreateFlowComponent,
             children:[
@@ -75,6 +80,7 @@ const orderRoutes: Routes = [
                 component: StepsComponent,
             
               },
+
 
 
 

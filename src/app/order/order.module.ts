@@ -30,12 +30,12 @@ import { WorkflowListComponent } from './executor/workflow-list/workflow-list.co
 import { WorkflowExecuteComponent } from './executor/workflow-execute/workflow-execute.component';
 import { DescriptionComponent } from './executor/description/description.component';
 import { ExecutionDetailsComponent } from './executor/execution-details/execution-details.component';
+import { ModelingComponent } from './modeling/modeling.component';
 // import { AddBranchComponent } from './create-flow/add-branch/add-branch.component';
 // import { DescriptionComponent } from './executor/description/description.component';
 // import { ExecutorComponent } from './executor/executor.component';
 // import { WorkflowExecuteComponent } from './executor/workflow-execute/workflow-execute.component';
 // import { WorkflowListComponent } from './executor/workflow-list/workflow-list.component';
-
 
 
 
@@ -57,6 +57,7 @@ import { ExecutionDetailsComponent } from './executor/execution-details/executio
     WorkflowExecuteComponent,
     DescriptionComponent,
     ExecutionDetailsComponent,
+    ModelingComponent,
     // AddBranchComponent,
     // ExecutorComponent,
     // WorkflowListComponent,
@@ -76,7 +77,8 @@ import { ExecutionDetailsComponent } from './executor/execution-details/executio
     SequentialWorkflowDesignerModule,
     DiagramModule,
     MatDialogModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    
     
 
 

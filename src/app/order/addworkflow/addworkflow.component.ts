@@ -70,7 +70,7 @@ export class AddworkflowComponent implements OnInit{
         (result) => { 
           console.log("workflow :", this.workflow)
 
-          this.router.navigate(['/mfe1/orderComponent/create-flowComponent/'+result.id]);
+          this.router.navigate(['/mfe1/orderComponent/modelingComponent/'+result.id]);
           Swal.fire('Valider', '', 'success');
           
         },
